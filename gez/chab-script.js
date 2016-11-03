@@ -173,72 +173,71 @@ $(document).ready(function() {
 			
 		// Inicio categorías y zonas
 		
-			var categoria = $('#selector-categoria input[type=radio]:checked').val(); // Inicia con el que se indique como checked	
-		    var zona = $('#selector-zona a.active').attr('id'); // Inicia en default con el que se indique como active
+		var categoria = $('#selector-categoria input[type=radio]:checked').val(); // Inicia con el que se indique como checked	
+		var zona = $('#selector-zona a.active').attr('id'); // Inicia en default con el que se indique como active
 		    
 		// selector de servicio
        		$('#selector-categoria input[type=radio]').change(function() {
-				categoria = this.value;
-				$('#selector-zona a').removeClass('active'); // Elimina el active para que pueda clickearse
-				$('a#' + zona).click(); // Hace click sobre la zona activa nuevamente pero cambiada la categoría
-			});
+			categoria = this.value;
+			$('#selector-zona a').removeClass('active'); // Elimina el active para que pueda clickearse
+			$('a#' + zona).click(); // Hace click sobre la zona activa nuevamente pero cambiada la categoría
+		});
 
-		
 		// selector de zonas de planes    
-			$('#selector-zona a').on('click', function(event) {
+		$('#selector-zona a').on('click', function(event) {
      			event.preventDefault(); 
      			
      			zona = $(this).attr('id');
      			
      			function complete(){
-  
-					$('.abono').removeClass('visible');  				
+ 
+				$('.abono').removeClass('visible');  				
      				
-					if(zona == 'select-z2'){
-                        if( categoria == 'empresa' ) {
+				if(zona == 'select-z2'){
+                        		if( categoria == 'empresa' ) {
 						$('#abonos-z4').fadeIn('slow');
 						$('#abonos-z4').addClass('visible');
-						}
-                        else {
-                        $('#abonos-z1').fadeIn('slow');
+					}
+                       			else {
+                        			$('#abonos-z1').fadeIn('slow');
 						$('#abonos-z1').addClass('visible');
-						}
-					};
+					}
+				};
 					
-					if(zona == 'select-prepago') {
-						if( categoria == 'empresa' ) {
+				if(zona == 'select-prepago') {
+					if( categoria == 'empresa' ) {
 						$('#abonos-z5').fadeIn('slow');
 						$('#abonos-z5').addClass('visible');
-						}
-                        else {
+					}
+                        		else {
 						$('#abonos-z2').fadeIn('slow');
 						$('#abonos-z2').addClass('visible');
-						}
-					};
+					}
+				};
 							
-					if(zona == 'select-z1'){
-						if( categoria == 'empresa' ) {
+				if(zona == 'select-z1'){
+					if( categoria == 'empresa' ) {
 						$('#abonos-z3').fadeIn('slow');
 						$('#abonos-z3').addClass('visible');
-						}
-                        else {
+					}
+                        		else {
 						$('#abonos-z0').fadeIn('slow');
 						$('#abonos-z0').addClass('visible');
 						}
-					};    				
+				};    				
 	
      			};
 
-				if ($(this).hasClass('active')){
+			if ($(this).hasClass('active')){
 				return false;
-				}     						
-				else {
+			}     						
+			else {
 				$('#selector-zona a').removeClass('active');
 				$(this).addClass('active');				
 				$('.visible').fadeOut('slow', complete);							
-				};
+			};
 					     	
-    		 });	
+    		});	
 
 		// Fin categorías y zonas
     
